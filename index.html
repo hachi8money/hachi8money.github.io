@@ -1,38 +1,64 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
-<!-- TOP BAR 開始 -->
-<div class="top-bar">
-  <img src="https://ppt.cc/f7r6Cx@.png">
-  <a href="https://line.me/ti/g2/CXrctZDNzDrenYllf1XcCia_oMiq9ncIjq1Q4w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">🔗 小八LINE社群</a> |
-</div>
+<!-- NAV BAR 開始 -->
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="/">
+      <img src="https://ppt.cc/f5YBex@.jpg" alt="Logo">
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-link" target="_blank" rel="noopener" href="href="https://www.instagram.com/hachi_money/" target="_blank">Instagram</a>
+  </div>
+</nav>
 
 <style>
-/* TOP BAR 樣式 */
-.top-bar {
+/* Navbar 基本樣式 */
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #BBD8F0;
-  text-align: center;
-  padding: 5px 0;
+  background-color: #BBD8F2;
+  padding: 8px 20px;
   border-bottom: 1px solid #e0e0e0;
   z-index: 9999;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.top-bar img {
-  max-width: 100%;
-  height: auto;
-  max-height: 60px; /* 控制圖片高度 */
+/* 左側 Logo */
+.nav-left img {
+  height: 50px;
+  width: auto;
+  padding-left: 210px;
+}
 }
 
-/* 預留空間避免內容被 top bar 蓋住 */
+/* 右側連結 */
+.nav-right .nav-link {
+  font-size: 18px;
+  color: #000;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-right .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 預留空間避免內容被 Navbar 擋住 */
 body {
   margin-top: 70px;
 }
 </style>
-<!-- TOP BAR 結束 -->
+<!-- NAV BAR 結束 -->
+
 
 <head>
   <meta charset="UTF-8" />
