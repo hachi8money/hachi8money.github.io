@@ -1,104 +1,86 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-
-<!-- NAV BAR 開始 -->
-<nav class="navbar">
-  <div class="nav-left">
-    <a href="/">
-      <img src="https://ppt.cc/f7r6Cx@.png" alt="Logo">
-      
-    </a>
-  </div>
-  <div class="site-name">
-    <span class="site-name">小八省錢攻略</span>
-  </div>
-  <div class="nav-right">
-    <a href="https://line.me/ti/g2/CXrctZDNzDrenYllf1XcCia_oMiq9ncIjq1Q4w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE社群</a> |
-    <a class="nav-link" target="_blank" rel="noopener" href="https://www.instagram.com/hachi_money/" target="_blank">Instagram</a>
-    <a class="nav-link" target="_blank" rel="noopener" href="https://line.me/ti/g2/CXrctZDNzDrenYllf1XcCia_oMiq9ncIjq1Q4w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">LINE社群</a>
-  </div>
-</nav>
-
-<style>
-/* Navbar 基本樣式 */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #BBD8F2;
-  padding: 8px 20px;
-  border-bottom: 1px solid #e0e0e0;
-  z-index: 9999;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* 左側 Logo */
-.nav-left img {
-  height: 50px;
-  width: auto;
-  padding-left: 210px;
-}
-
-
-/* 右側連結 */
-.nav-right .nav-link {
-  font-size: 18px;
-  color: #EEEEEE;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.nav-right .nav-link:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.site-name {
-  font-family: 'Lato', sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  user-select: none;
-  color: #4C4948;
-  line-height: 1;
-}
-.site-name:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  text-decoration: none
-}
-
-/* 預留空間避免內容被 Navbar 擋住 */
-body {
-  margin-top: 70px;
-}
-</style>
-<!-- NAV BAR 結束 -->
-
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>小八省錢攻略</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Arial", sans-serif;
       color: #333;
       background-color: #f8f8f8;
+      margin-top: 70px;
     }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background-color: #BBD8F2;
+      padding: 8px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      z-index: 9999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-left img {
+      height: 50px;
+      width: auto;
+    }
+    .site-name {
+      font-family: 'Lato', sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      user-select: none;
+      color: #4C4948;
+      line-height: 1;
+    }
+    .nav-right a {
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+    .nav-right a:hover {
+      background-color: rgba(0,0,0,0.1);
+    }
+
+    /* 手機版漢堡選單 */
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+    .nav-right {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-right.mobile-hidden {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .nav-right.show {
+      display: flex;
+    }
+
+    /* 背景 */
     .background {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background-image: url('https://ppt.cc/f5YBex@.jpg');
       background-size: cover;
       background-position: center;
@@ -107,13 +89,13 @@ body {
     }
     .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background-color: rgba(255, 255, 255, 0.7);
       z-index: -1;
     }
+
+    /* 內容 */
     .content {
       padding: 20px 15px;
       text-align: center;
@@ -175,6 +157,8 @@ body {
     a:hover {
       text-decoration: underline;
     }
+
+    /* Toast */
     .toast {
       position: fixed;
       bottom: 30px;
@@ -193,30 +177,37 @@ body {
       opacity: 1;
       pointer-events: auto;
     }
+
+    /* RWD 手機版 */
+    @media (max-width: 768px) {
+      .nav-right { display: none; }
+      .hamburger { display: block; }
+    }
     @media (max-width: 600px) {
-      .button-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-      button {
-        width: 90%;
-        max-width: 320px;
-        min-width: auto;
-        flex: none;
-      }
-      .content {
-        padding: 15px 12px;
-        max-width: 100%;
-      }
+      .button-group { flex-direction: column; align-items: center; gap: 10px; }
+      button { width: 90%; max-width: 320px; min-width: auto; flex: none; }
+      .content { padding: 15px 12px; max-width: 100%; }
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="/"><img src="https://ppt.cc/f7r6Cx@.png" alt="Logo"></a>
+    </div>
+    <div class="site-name">小八省錢攻略</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="nav-right mobile-hidden" id="menu">
+      <a href="https://line.me/ti/g2/CXrctZDNzDrenYllf1XcCia_oMiq9ncIjq1Q4w" target="_blank" rel="noopener noreferrer">LINE社群</a>
+      <a href="https://www.instagram.com/hachi_money/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </nav>
 
   <div class="background"></div>
   <div class="overlay"></div>
 
+  <!-- 內容 -->
   <div class="content">
     <h1>🦐8.8蝦皮折扣碼</h1>
     <p class="subtitle">點擊按鈕自動複製折扣碼，貼上即可領券</p>
@@ -229,39 +220,33 @@ body {
     </section>
 
     <section class="code-section">
-     <p>全站11%蝦幣券(低消$599)</p>
+      <p>全站11%蝦幣券(低消$599)</p>
       <div class="button-group">
-         <button onclick="copyCode('CART88')">複製折扣碼</button>
+        <button onclick="copyCode('CART88')">複製折扣碼</button>
         <button onclick="copyCode('SUPERDAD888')">第1組</button>
-         <button onclick="copyCode('THANKUDAD88')">第2組</button>
+        <button onclick="copyCode('THANKUDAD88')">第2組</button>
       </div>
     </section>
 
-    
-
     <section class="code-section">
-     <p>新!全站599-60券</p>
+      <p>新!全站599-60券</p>
       <div class="button-group">
         <button onclick="copyCode('88ATCDD')">複製折扣碼</button>
       </div>
     </section>
-    
 
-
-     <section class="code-section">
+    <section class="code-section">
       <p>商城299-30券</p>
       <div class="button-group">
         <button onclick="copyCode('AP8SEVEN')">7-11取貨</button>
         <button onclick="copyCode('HL8APP')">萊爾富取貨</button>
-        <button onclick="copyCode('OKAPP8')">ok取貨</button>
+        <button onclick="copyCode('OKAPP8')">OK取貨</button>
       </div>
     </section>
 
-    
-
     <p class="section-title">歡迎加入我的省錢社群：</p>
     <p>
-      <a href="https://line.me/ti/g2/CXrctZDNzDrenYllf1XcCia_oMiq9ncIjq1Q4w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">🔗 小八LINE社群</a> |
+      <a href="https://line.me/ti/g2/CXrctZDNzDrenYllf1XcCia_oMiq9ncIjq1Q4w" target="_blank" rel="noopener noreferrer">🔗 小八LINE社群</a> |
       <a href="https://www.instagram.com/hachi_money/" target="_blank" rel="noopener noreferrer">🔗 Instagram</a>
     </p>
   </div>
@@ -277,13 +262,16 @@ body {
         }, 400);
       });
     }
-
     function showToast() {
       const toast = document.getElementById('toast');
       toast.classList.add('show');
       setTimeout(() => {
         toast.classList.remove('show');
       }, 1200);
+    }
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
     }
   </script>
 </body>
