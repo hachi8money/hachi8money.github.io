@@ -1,5 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
+<!-- TOP BAR 開始 -->
+<div class="top-bar">
+  <img src="https://ppt.cc/f5YBex@.jpg">
+  
+</div>
+
+<style>
+/* TOP BAR 樣式 */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #BBD8F0;
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 9999;
+}
+
+.top-bar img {
+  max-width: 100%;
+  height: auto;
+  max-height: 60px; /* 控制圖片高度 */
+}
+
+/* 預留空間避免內容被 top bar 蓋住 */
+body {
+  margin-top: 70px;
+}
+</style>
+<!-- TOP BAR 結束 -->
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
