@@ -203,8 +203,18 @@
     <p>00點 搶爆品</p>
     <div class="button-group">
       <button onclick="copyCode1('')">Nike Dunk 灰白 $88</button>
+      <button onclick="copyCode2('')">Nike Air Force 1 白 $88</button>
     </div>
   </section>
+
+  <section class="code-section">
+    <p>短影音</p>
+    <div class="button-group">
+      <button onclick="Shopee('')">短影音優惠券</button>
+      <button onclick="Hachi('')">小八短影音</button>
+    </div>
+  </section>
+  
   <!-- 
   <section class="code-section">
     <p>商城299-30券</p>
@@ -215,13 +225,14 @@
     </div>
   </section>
   -->
+  <!-- 
   <p class="section-title">歡迎加入我的省錢社群：</p>
   <p>
     <a href="https://line.me/ti/g2/CXrctZDNzDrenYllf1XcCia_oMiq9ncIjq1Q4w" target="_blank">🔗 小八LINE社群</a> |
     <a href="https://www.instagram.com/hachi_money/" target="_blank">🔗 Instagram</a>
   </p>
 </div>
-
+-->
 <div class="toast" id="toast">折扣碼已複製！</div>
 
 <script>
@@ -243,6 +254,28 @@
       }, 400);
     });
   }
+  function copyCode2(code) {
+    navigator.clipboard.writeText(code).then(() => {
+      setTimeout(() => {
+        window.location.href = 'https://s.shopee.tw/1LVe69UIkr';
+      }, 400);
+    });
+  }
+  function Shopee(code) {
+    navigator.clipboard.writeText(code).then(() => {
+      setTimeout(() => {
+        window.location.href = 'https://s.shopee.tw/9KXvdE41tA';
+      }, 400);
+    });
+  }
+  function Hachi(code) {
+    navigator.clipboard.writeText(code).then(() => {
+      setTimeout(() => {
+        window.location.href = 'https://s.shopee.tw/AKQSp5q8Mz';
+      }, 400);
+    });
+  }
+
   function showToast() {
     const toast = document.getElementById('toast');
     toast.classList.add('show');
