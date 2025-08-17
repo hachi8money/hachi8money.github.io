@@ -202,19 +202,19 @@
   <section class="code-section">
     <p>00點 搶爆品</p>
     <div class="button-group">
-      <button onclick="copyCode('88ATCDD')">複製折扣碼</button>
+      <button onclick="copyCode1('')">Nike Dunk 灰白 $88</button>
     </div>
   </section>
-  /*
+  <!-- 
   <section class="code-section">
     <p>商城299-30券</p>
     <div class="button-group">
       <button onclick="copyCode('AP8SEVEN')">7-11取貨</button>
       <button onclick="copyCode('HL8APP')">萊爾富取貨</button>
-      <button onclick="copyCode1('')">Nike Dunk 灰白 $88</button>
+      
     </div>
   </section>
-  */
+  -->
   <p class="section-title">歡迎加入我的省錢社群：</p>
   <p>
     <a href="https://line.me/ti/g2/CXrctZDNzDrenYllf1XcCia_oMiq9ncIjq1Q4w" target="_blank">🔗 小八LINE社群</a> |
@@ -238,7 +238,6 @@
   }
   function copyCode1(code) {
     navigator.clipboard.writeText(code).then(() => {
-      showToast();
       setTimeout(() => {
         window.location.href = 'https://s.shopee.tw/2g11gKfEgf';
       }, 400);
